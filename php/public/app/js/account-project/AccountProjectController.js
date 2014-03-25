@@ -7,7 +7,7 @@ var accountProjectCtrl = angular.module('AccountProjectCtrl', ['AccountProjectFa
 accountProjectCtrl.controller('AccountProjectCtrl', ['$scope', '$rootScope', 'AccountProjectList',
     function($scope, $rootScope, AccountProjectList) {
         console.log('AccountProjectCtrl');
-        $rootScope.active = 'account-controller';
+        $rootScope.active = 'account-project';
 
         AccountProjectList.fetchItems(function () {
             $scope.activeTab = AccountProjectList.orderBy;

@@ -2,7 +2,7 @@
 
 /* Project Directives */
 
-var projectDirectives = angular.module('ProjectDirectives', ['ProjectFactories']);
+var projectDirectives = angular.module('ProjectDirectives', ['ProjectFactories', 'CrudDirectives']);
 
 projectDirectives.directive('miFormProject', function() {
     return {

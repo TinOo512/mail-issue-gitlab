@@ -93,3 +93,27 @@ crudDirectives.directive('miUpdateDelete', function() {
         }]
     }
 });
+
+var INTEGER_REGEXP = /^\-?\d+$/;
+crudDirectives.directive('miInteger', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function(viewValue) {
+                if (INTEGER_REGEXP.test(viewValue)) {
+                    // it is valid
+                    ctrl.$setValidity('integer', true);
+                    elm.parent().removeClass('has-error');
+                    elm.parent().addClass('has-success');
+                    return viewValue;
+                } else {
+                    // it is invalid, return undefined (no model update)
+                    ctrl.$setValidity('integer', false);
+                    elm.parent().removeClass('has-success');
+                    elm.parent().addClass('has-error');
+                    return undefined;
+                }
+            });
+        }
+    };
+});

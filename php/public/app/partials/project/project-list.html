@@ -1,0 +1,45 @@
+<div ng-controller="ProjectCtrl">
+    <h1 class="page-header">Project</h1>
+
+    <h2 class="sub-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8">Project List</div>
+            <div class="col-xs-3 col-md-2">
+                <form class="form-inline">
+                    <input ng-model="search.$" type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+            <div class="col-sm-3 col-md-2" mi-create mi-service="ProjectList"></div>
+        </div>
+    </h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Alias Name</th>
+                <th>Folder Name</th>
+                <th>Project Name</th>
+                <th colspan="2">Id Gitlab Project</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="project in projects">
+                <td>{{ $index }}</td>
+                <td>{{ project.id }}</td>
+                <td>{{ project.aliasName }}</td>
+                <td>{{ project.folderName }}</td>
+                <td>{{ project.projectName }}</td>
+                <td>{{ project.idGitlabProject }}</td>
+                <td>
+                    <div mi-update-delete mi-id="{{project.id}}" mi-service="ProjectList"></div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div mi-form-project mi-service="ProjectList"></div>
+    <div mi-confirm mi-service="ProjectList"></div>
+</div>

@@ -1,0 +1,80 @@
+<div ng-controller="AccountProjectCtrl">
+    <h1 class="page-header">Account Project</h1>
+
+    <h2 class="sub-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8">Link between account and project List</div>
+            <div class="col-xs-3 col-md-2">
+                <form class="form-inline">
+                    <input ng-model="search.$" type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+            <div class="col-sm-3 col-md-2" mi-create mi-service="AccountProjectList"></div>
+        </div>
+    </h2>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li ng-class="{active: activeTab=='account'}"><a ng-click="onTabClick('account')">Order by Account</a></li>
+                <li ng-class="{active: activeTab=='project'}"><a ng-click="onTabClick('project')">Order by Project</a></li>
+            </ul>
+        </div>
+        <div ng-switch on="activeTab">
+            <div ng-switch-when="account">
+                <div class="panel-body">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default" ng-repeat="accountProject in accountsProjects | filter:search">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse-{{accountProject.account.id}}">
+                                        {{accountProject.account.email}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-{{accountProject.account.id}}" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li ng-repeat="project in accountProject.projects">
+                                            <span>{{project.projectName}}</span>
+                                            <span mi-update-delete mi-id="{{accountProject.account.id}},{{project.id}}" mi-service="AccountProjectList" mi-only-delete="true"></span>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="project">
+                <div class="panel-body">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default" ng-repeat="accountProject in accountsProjects | filter:search">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse-{{accountProject.project.id}}">
+                                        {{accountProject.project.projectName}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-{{accountProject.project.id}}" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li ng-repeat="account in accountProject.accounts">
+                                            <span>{{account.email}}</span>
+                                            <span mi-update-delete mi-id="{{accountProject.project.id}},{{account.id}}" mi-service="AccountProjectList" mi-only-delete="true"></span>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div mi-form-account-project mi-service="AccountProjectList"></div>
+    <div mi-confirm mi-service="AccountProjectList"></div>
+</div>

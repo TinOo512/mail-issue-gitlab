@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myIssueGitlab">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mail Issue Gitlab</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="app/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Libraries CSS -->
+    <link href="app/lib/select2/select2.css" rel="stylesheet">
+    <link href="app/lib/select2/select2-bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="app/css/app.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Mail Issue Gitlab</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li ng-class="{active: active=='account'}"><a href="#/account">Account</a></li>
+                <li ng-class="{active: active=='project'}"><a href="#/project">Projet</a></li>
+                <li ng-class="{active: active=='account-project'}"><a href="#/account-project">Account Projet</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ng-view">
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="app/lib/jquery/jquery-1.11.0.js"></script>
+<script src="app/lib/bootstrap/js/bootstrap.js"></script>
+<script src="app/lib/select2/select2.js"></script>
+<script src="app/lib/select2/select2_locale_fr.js"></script>
+
+<script src="app/lib/angular/angular.js"></script>
+<script src="app/lib/angular/angular-resource.js"></script>
+<script src="app/lib/angular/angular-route.js"></script>
+
+<script src="app/lib/angular-ui/select2.js"></script>
+
+<script src="app/js/app.js"></script>
+<script src="app/js/share/Utils.js"></script>
+
+<script src="app/js/share/CrudDirectives.js"></script>
+
+<script src="app/js/account/AccountController.js"></script>
+<script src="app/js/project/ProjectController.js"></script>
+<script src="app/js/account-project/AccountProjectController.js"></script>
+
+<script src="app/js/account/AccountServices.js"></script>
+<script src="app/js/project/ProjectServices.js"></script>
+<script src="app/js/account-project/AccountProjectServices.js"></script>
+
+<script src="app/js/account/AccountFactories.js"></script>
+<script src="app/js/project/ProjectFactories.js"></script>
+<script src="app/js/account-project/AccountProjectFactories.js"></script>
+
+<script src="app/js/account/AccountDirectives.js"></script>
+<script src="app/js/project/ProjectDirectives.js"></script>
+<script src="app/js/account-project/AccountProjectDirectives.js"></script>
+</body>
+</html>

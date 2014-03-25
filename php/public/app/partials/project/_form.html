@@ -1,0 +1,36 @@
+<!-- Modal -->
+<div class="modal fade" id="CUDModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form ng-submit="submit(project)" name="modal_form" role="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Create, Update or Delete Account</h4>
+                </div>
+                <div class="modal-body">
+                    <input ng-model="project.id" type="hidden" id="id" name="id">
+                    <div class="form-group">
+                        <label for="alias_name">Alias Name</label>
+                        <input ng-model="project.aliasName" required type="text" class="form-control" id="alias_name" placeholder="Enter alias name">
+                    </div>
+                    <div class="form-group">
+                        <label for="folder_name">Folder Name</label>
+                        <input ng-model="project.folderName" required type="text" class="form-control" id="folder_name" placeholder="Enter folder name">
+                    </div>
+                    <div class="form-group">
+                        <label for="project_name">Project Name</label>
+                        <input ng-model="project.projectName" required type="text" class="form-control" id="project_name" placeholder="Enter project name">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_gitlab_project">Id Gitlab Project</label>
+                        <input ng-model="project.idGitlabProject" required type="text" class="form-control" id="id_gitlab_project" placeholder="Enter id gitlab project">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

